@@ -223,3 +223,7 @@ Performance runs nightly only until its budgets are baselined on GitHub runners.
 [Architecture](docs/ARCHITECTURE.md) · [Test strategy](docs/TEST_STRATEGY.md) ·
 [Self-healing](docs/SELF_HEALING.md) · [Agentic](docs/AGENTIC.md) ·
 [Contributing](docs/CONTRIBUTING.md) · [Security](SECURITY.md)
+
+## License
+
+Copyright (c) 2026 Pantelis Pantelidis. All rights reserved. See [LICENSE](LICENSE).
