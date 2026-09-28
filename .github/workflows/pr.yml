@@ -1,0 +1,44 @@
+name: PR gate
+
+# Fast gate for every pull request into main. A red run blocks the merge.
+on:
+  pull_request:
+    branches: ["main"]
+
+concurrency:
+  group: pr-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Typecheck, unit, integration, e2e, a11y
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      CI: "true"
+      HEAL_MODE: strict
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - name: Cache Playwright browsers
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+      - run: npx playwright install --with-deps chromium
+      - run: npm run typecheck
+      - run: npx playwright test --project=unit --project=integration --project=e2e-chromium --project=e2e-mobile --project=a11y
+      - name: Upload report
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: pr-report
+          path: reports/
+          retention-days: 14

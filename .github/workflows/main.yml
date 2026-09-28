@@ -1,0 +1,65 @@
+name: Main - test and deploy
+
+# Runs on every merge into main. Deploys app/ to GitHub Pages only when the full gate is green,
+# so the published site is always a tested build.
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  test:
+    name: Full gate
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      CI: "true"
+      HEAL_MODE: strict
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - name: Cache Playwright browsers
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+      - run: npx playwright install --with-deps chromium
+      - run: npm run typecheck
+      # Performance runs nightly only until budgets are baselined on GitHub runners (TBT is noisy).
+      - run: npx playwright test --project=unit --project=integration --project=e2e-chromium --project=e2e-mobile --project=a11y
+      - name: Upload report
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: main-report
+          path: reports/
+          retention-days: 30
+
+  deploy:
+    name: Deploy to GitHub Pages
+    needs: test
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: app
+      - id: deployment
+        uses: actions/deploy-pages@v5

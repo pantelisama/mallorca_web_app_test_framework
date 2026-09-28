@@ -1,3 +1,4 @@
 #!/bin/sh
 set -e
-npm test
+npm run -s typecheck
+npx playwright test --project=unit --reporter=dot

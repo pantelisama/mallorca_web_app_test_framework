@@ -1,0 +1,19 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: "/"
+    schedule:
+      interval: weekly
+    groups:
+      playwright:
+        patterns: ["@playwright/*", "@axe-core/playwright"]
+      dev-tooling:
+        patterns: ["typescript", "tsx", "@types/*", "jsdom"]
+    # Leaflet must stay pinned to the versions app/index.html loads from the CDN.
+    ignore:
+      - dependency-name: "leaflet"
+      - dependency-name: "leaflet.markercluster"
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: weekly
