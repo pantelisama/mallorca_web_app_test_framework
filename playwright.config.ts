@@ -37,6 +37,17 @@ export default defineConfig({
     { name: "e2e-webkit", testDir: "tests/e2e", use: { ...devices["Desktop Safari"] } },
     { name: "e2e-mobile", testDir: "tests/e2e", use: { ...devices["Pixel 7"] } },
     { name: "e2e-iphone", testDir: "tests/e2e", use: { ...devices["iPhone 14"] } },
+    // Target phones. Pixel 9a has no Playwright profile: 1080x2424 at 2.625 → 412x923 CSS px.
+    { name: "phone-pixel-9a", testDir: "tests/e2e", testMatch: "responsive.spec.ts", use: { ...devices["Pixel 8a"], viewport: { width: 412, height: 846 } } },
+    ...(["iPhone 15", "iPhone 15 Pro Max", "iPhone 16", "iPhone 16 Pro", "iPhone 16 Pro Max", "iPhone 17 Pro"] as const).flatMap((d) => {
+      const slug = d.toLowerCase().replace(/ /g, "-");
+      const { defaultBrowserType: _real, ...size } = devices[d];
+      return [
+        // Real WebKit (nightly), and the same viewport on Chromium so the PR gate can check layout.
+        { name: `phone-${slug}`, testDir: "tests/e2e", testMatch: "responsive.spec.ts", use: { ...devices[d] } },
+        { name: `phone-${slug}-layout`, testDir: "tests/e2e", testMatch: "responsive.spec.ts", use: { ...size, browserName: "chromium" as const } },
+      ];
+    }),
     { name: "a11y", testDir: "tests/a11y", use: chromium },
     // Timing is measured alone: parallel workers on the same CPU distort LCP/TBT.
     { name: "performance", testDir: "tests/performance", use: chromium, fullyParallel: false },

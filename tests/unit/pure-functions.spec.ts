@@ -87,10 +87,10 @@ test.describe("spotOnDay", () => {
 });
 
 test.describe("HTML fragments", () => {
-  test("ratingHtml: one decimal, count defaults to 0", () => {
+  test("ratingHtml: one decimal; without a review count only the number", () => {
     const ratingHtml = app.run<(r: number, n?: number) => string>("ratingHtml");
     expect(ratingHtml(4, 12)).toBe("<span class='stars'>★ 4.0</span> · 12 κριτικές");
-    expect(ratingHtml(4.56)).toContain("★ 4.6</span> · 0 κριτικές");
+    expect(ratingHtml(4.56)).toBe("<span class='stars'>4.6</span>");
   });
   test("extraHtml: price · hours, then tag; empty when nothing", () => {
     const extraHtml = app.run<(s: object) => string>("extraHtml");

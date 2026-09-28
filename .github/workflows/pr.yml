@@ -37,7 +37,7 @@ jobs:
           key: playwright-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
       - run: npx playwright install --with-deps chromium
       - run: npm run typecheck
-      - run: npx playwright test --project=unit --project=integration --project=e2e-chromium --project=e2e-mobile --project=a11y
+      - run: npx playwright test --project=unit --project=integration --project=e2e-chromium --project=e2e-mobile --project=a11y --project="*-layout" --project=phone-pixel-9a
       - name: Upload report
         if: ${{ !cancelled() }}
         uses: actions/upload-artifact@v4

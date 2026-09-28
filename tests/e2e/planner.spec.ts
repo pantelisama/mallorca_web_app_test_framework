@@ -58,7 +58,6 @@ test.describe("saved places", () => {
 
 test.describe("categories drawer", () => {
   test("toggle opens, close closes", async ({ planner }) => {
-    test.fail(true, APP_BUGS.drawerToggleClick);
     await (await planner.catToggle()).click();
     await expect(planner.catDrawer).toHaveClass(/open/);
     await (await planner.catClose()).click();
@@ -78,7 +77,6 @@ test.describe("categories drawer", () => {
   });
 
   test("clicking a category chip toggles its layer", async ({ planner }) => {
-    test.fail(true, APP_BUGS.drawerToggleClick);
     await planner.swipe(planner.catDrawer, 80);
     const chip = await planner.filterChip("food");
     await chip.click();
@@ -107,7 +105,6 @@ test.describe("stops drawer", () => {
   });
 
   test("toggle opens, close closes", async ({ planner }) => {
-    test.fail(true, APP_BUGS.drawerToggleClick);
     await (await planner.stopToggle()).click({ timeout: 3000 });
     await expect(planner.stopDrawer).toHaveClass(/open/);
     await (await planner.stopClose()).click({ timeout: 3000 });
@@ -122,7 +119,6 @@ test.describe("stops drawer", () => {
   });
 
   test("clicking a stop centres the map on it", async ({ planner }) => {
-    test.fail(true, APP_BUGS.drawerToggleClick);
     await planner.swipe(planner.stopDrawer, -80);
     await (await planner.stopItem(1)).click();
     await expect(planner.stopDrawer).not.toHaveClass(/open/, { timeout: 2000 });

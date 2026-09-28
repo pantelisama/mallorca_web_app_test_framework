@@ -213,7 +213,6 @@ Performance runs nightly only until its budgets are baselined on GitHub runners.
 
 | | Issue |
 |---|---|
-| BUG-1 | Mouse/touch clicks inside the drawers do nothing: swipe code captures the pointer on press. Keyboard works. |
 | BUG-3 | `styles.css` hides the village panel's Google Maps, navigation and Back buttons. |
 | A11y | Colour contrast: gold ratings 3.42:1, stop numbers 2.38:1, food map button 3.42:1 (4.5:1 required). |
 

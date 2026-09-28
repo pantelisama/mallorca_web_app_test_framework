@@ -35,7 +35,7 @@ jobs:
       - run: npx playwright install --with-deps
       - run: npm run typecheck
       - name: Functional, cross-browser, a11y, visual
-        run: npx playwright test --project=unit --project=integration --project=e2e-chromium --project=e2e-firefox --project=e2e-webkit --project=e2e-mobile --project=e2e-iphone --project=a11y --project=visual
+        run: npx playwright test --project=unit --project=integration --project=e2e-chromium --project=e2e-firefox --project=e2e-webkit --project=e2e-mobile --project=e2e-iphone --project="phone-*" --project=a11y --project=visual
       - name: Performance (one worker)
         if: ${{ !cancelled() }}
         run: npm run test:perf
