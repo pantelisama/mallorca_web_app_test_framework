@@ -359,6 +359,7 @@ function ensureEdgeDrawers(route){
     toggle.className="cat-toggle stop-toggle";
     toggle.setAttribute("aria-label","Άνοιξε στάσεις");
     toggle.querySelector(".cat-toggle-label").textContent="ΣΤΑΣΕΙΣ";
+    stops.querySelector(".cat-hint").textContent="Σύρε από τη δεξιά άκρη ή πάτησε το handle.";
     document.body.appendChild(stops);
   }
   if(stops){

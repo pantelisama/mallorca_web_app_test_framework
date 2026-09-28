@@ -5,6 +5,8 @@ import { KNOWN_A11Y } from "../../framework/config/known-issues";
 
 /** WCAG 2.1 A/AA scan; returns every violating node as "rule target". Full results are attached. */
 async function scan(page: Page, testInfo: TestInfo): Promise<{ rule: string; target: string }[]> {
+  // The app re-renders place cards as photo lookups resolve; scanning mid-swap misses nodes.
+  await page.waitForLoadState("networkidle");
   const r = await new AxeBuilder({ page }).withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"]).analyze();
   await testInfo.attach("axe-violations", { body: JSON.stringify(r.violations, null, 2), contentType: "application/json" });
   return r.violations.flatMap((v) => v.nodes.map((n) => ({ rule: v.id, target: n.target.join(" ") })));

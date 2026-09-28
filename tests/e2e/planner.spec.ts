@@ -103,7 +103,6 @@ test.describe("categories drawer", () => {
 
 test.describe("stops drawer", () => {
   test("toggle is on screen when closed", async ({ planner }) => {
-    test.fail(true, APP_BUGS.stopToggleOffscreen);
     await expect(await planner.stopToggle()).toBeInViewport({ timeout: 2000 });
   });
 

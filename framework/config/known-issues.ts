@@ -6,8 +6,6 @@
 export const APP_BUGS = {
   drawerToggleClick:
     "BUG-1: installEdgeSwipe calls setPointerCapture on pointerdown, so every mouse/touch click inside a drawer is retargeted to the drawer itself: the toggles, the close buttons, the category chips and the stop items do nothing (keyboard Enter still works) (verified: stubbing setPointerCapture makes it work).",
-  stopToggleOffscreen:
-    "BUG-2: #stopDrawer.stop-edge keeps the panel before the toggle (order 1/2), so the closed drawer shows 48px of panel and the ΣΤΑΣΕΙΣ toggle sits off-screen (x=1468 on a 1280px viewport).",
   villageToolsHidden:
     "BUG-3: `.day-panel .day-tools{display:none!important}` (styles.css:251,267) hides the village panel's Google Maps, 🧭 Πλοήγηση and Back controls.",
 } as const;
