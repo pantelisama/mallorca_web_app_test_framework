@@ -1,0 +1,58 @@
+name: Nightly - all tests
+
+# Every test on every browser, plus visual and performance. Self-healing runs in report mode:
+# healed locators pass but land in reports/self-heal-report.json for review.
+# A red night opens (or updates) an issue labelled "nightly".
+on:
+  schedule:
+    - cron: "0 2 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  test:
+    name: All projects
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      CI: "true"
+      HEAL_MODE: report
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - name: Cache Playwright browsers
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-all-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+      - run: npx playwright install --with-deps
+      - run: npm run typecheck
+      - name: Functional, cross-browser, a11y, visual
+        run: npx playwright test --project=unit --project=integration --project=e2e-chromium --project=e2e-firefox --project=e2e-webkit --project=e2e-mobile --project=e2e-iphone --project=a11y --project=visual
+      - name: Performance (one worker)
+        if: ${{ !cancelled() }}
+        run: npm run test:perf
+      - name: Upload report
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: nightly-report
+          path: reports/
+          retention-days: 30
+      - name: Open or update the nightly issue
+        if: ${{ failure() }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          gh label create nightly --color B60205 --force >/dev/null
+          existing=$(gh issue list --label nightly --state open --json number --jq '.[0].number')
+          body="Nightly run failed: $RUN_URL (report artifact: nightly-report). Use the playwright-test-healer agent (docs/AGENTIC.md)."
+          if [ -n "$existing" ]; then gh issue comment "$existing" --body "$body"; else gh issue create --title "Nightly tests failing" --label nightly --body "$body"; fi

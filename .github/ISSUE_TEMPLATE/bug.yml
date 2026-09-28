@@ -1,0 +1,23 @@
+name: Bug
+description: Something in the planner does not work
+labels: ["bug"]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you did, what you expected, what you saw.
+    validations:
+      required: true
+  - type: dropdown
+    id: device
+    attributes:
+      label: Device
+      options: [Desktop, Android phone, iPhone, Tablet]
+    validations:
+      required: true
+  - type: input
+    id: day
+    attributes:
+      label: Day / feature
+      placeholder: "e.g. Σαβ 17, stops drawer"

@@ -2,7 +2,32 @@
   "name": "mallorca-planner",
   "private": true,
   "scripts": {
-    "test": "node --test",
+    "serve": "tsx framework/server/static-server.ts",
+    "typecheck": "tsc -p tsconfig.json",
+    "test": "playwright test",
+    "test:unit": "playwright test --project=unit",
+    "test:integration": "playwright test --project=integration",
+    "test:e2e": "playwright test --project=e2e-chromium --project=e2e-mobile",
+    "test:e2e:all": "playwright test --project=e2e-chromium --project=e2e-firefox --project=e2e-webkit --project=e2e-mobile --project=e2e-iphone",
+    "test:smoke": "playwright test --grep @smoke --project=e2e-chromium",
+    "agent:heal": "claude \"Use the playwright-test-healer agent to debug and fix the failing tests listed in reports/results.json. Do not change app/. Do not touch tests marked test.fail with an APP_BUGS reason.\"",
+    "test:a11y": "playwright test --project=a11y",
+    "test:perf": "playwright test --project=performance --workers=1",
+    "test:visual": "playwright test --project=visual",
+    "test:pr": "npm run typecheck && playwright test --project=unit --project=integration --project=e2e-chromium --project=e2e-mobile --project=a11y",
+    "test:nightly": "HEAL_MODE=report playwright test",
+    "report": "playwright show-report reports/html",
     "setup-hooks": "git config core.hooksPath .githooks"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.10.2",
+    "@playwright/test": "1.63.0",
+    "@types/jsdom": "^21.1.7",
+    "@types/node": "^20.17.0",
+    "jsdom": "^25.0.1",
+    "leaflet": "1.9.4",
+    "leaflet.markercluster": "1.5.3",
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.3"
   }
 }
