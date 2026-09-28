@@ -4,9 +4,12 @@ name: PR gate
 on:
   pull_request:
     branches: ["main"]
+  # Every push to a feature branch gets the same gate before a PR is even opened.
+  push:
+    branches-ignore: ["main", "dependabot/**"]
 
 concurrency:
-  group: pr-${{ github.event.pull_request.number }}
+  group: pr-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
 permissions:

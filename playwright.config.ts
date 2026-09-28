@@ -10,7 +10,7 @@ export default defineConfig({
   retries: IS_CI ? 1 : 0,
   workers: IS_CI ? 2 : undefined,
   reporter: [
-    ["list"],
+    IS_CI ? ["github"] : ["list"],
     ["html", { outputFolder: "reports/html", open: "never" }],
     ["json", { outputFile: "reports/results.json" }],
     ["./framework/healing/heal-reporter.ts"],
