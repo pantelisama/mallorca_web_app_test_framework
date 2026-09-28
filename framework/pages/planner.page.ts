@@ -120,10 +120,12 @@ export class PlannerPage {
   /** Mouse swipe starting on the drawer's visible edge, dx pixels horizontally. */
   async swipe(drawer: Locator, dx: number): Promise<void> {
     await test.step(`swipe ${dx}px`, async () => {
-      const box = await drawer.boundingBox();
-      if (!box) throw new Error("drawer has no box");
-      // Start on the visible edge, keeping the whole gesture inside the viewport.
-      const x = Math.min(Math.max(box.x + box.width - 20, 10 - Math.min(dx, 0)), this.page.viewportSize()!.width - 10 - Math.max(dx, 0));
+      // Grab the drawer by its bookmark (the handle a user swipes), not by whatever panel content
+      // happens to sit under a computed point.
+      const box = await drawer.locator(".cat-toggle").boundingBox();
+      if (!box) throw new Error("drawer has no toggle box");
+      const vw = this.page.viewportSize()!.width;
+      const x = Math.min(Math.max(box.x + box.width / 2, 10 - Math.min(dx, 0)), vw - 10 - Math.max(dx, 0));
       const y = box.y + box.height / 2;
       // A real mouse gesture: synthetic pointer events have no active pointer, and Firefox
       // rejects setPointerCapture for them.
