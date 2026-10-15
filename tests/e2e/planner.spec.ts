@@ -139,15 +139,15 @@ test.describe("map controls", () => {
     await (await planner.routeAction()).click();
     await expect(planner.routePins).toHaveCount(0);
     await (await planner.routeAction()).click();
-    await expect(planner.routePins).toHaveCount(5);
+    await expect(planner.routePins).toHaveCount(7);
   });
 
   test("navigation button opens Google directions for the first leg", { tag: "@smoke" }, async ({ planner }) => {
     await (await planner.navAction()).click();
     // Friday's stops, from routes.fri in app.js.
     await expect(planner.page).toHaveOpenedUrl(
-      "https://www.google.com/maps/dir/?api=1&travelmode=driving&origin=39.5517,2.7388&destination=39.8525,3.1192&waypoints=" +
-        encodeURIComponent("39.7942,3.1174|39.7881,3.1068|39.8412,3.1315"),
+      "https://www.google.com/maps/dir/?api=1&travelmode=driving&origin=39.5517,2.7388&destination=39.8415,3.163&waypoints=" +
+        encodeURIComponent("39.7589,2.6412|39.7588,2.6411|39.7486,2.6486|39.7671,2.7158|39.7968,2.696"),
     );
   });
 
