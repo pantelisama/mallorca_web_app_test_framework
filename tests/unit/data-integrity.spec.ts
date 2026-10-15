@@ -41,7 +41,7 @@ test("routes exist only for trip days and each stop has a known pin type and siz
     expect(DAY_IDS).toContain(id);
     expect(r.stops.length).toBeGreaterThan(0);
     for (const x of r.stops) {
-      expect(["food", "beach", "village", "sight"], x.n).toContain(x.type);
+      expect(["food", "beach", "village", "sight", "hotel"], x.n).toContain(x.type);
       expect(["long", "small"], x.n).toContain(x.size);
     }
   }
