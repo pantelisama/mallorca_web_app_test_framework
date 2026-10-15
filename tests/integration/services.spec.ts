@@ -16,7 +16,7 @@ test.describe("OSRM routing", () => {
   test("the day's route is drawn along the returned road geometry with numbered pins", async ({ planner, netLog }) => {
     await planner.goto();
     await expect(planner.routeLines).toHaveCount(1);
-    await expect(planner.routePins).toHaveCount(5);
+    await expect(planner.routePins).toHaveCount(7);
     await expect(planner.routePins.first()).toHaveText("1");
     expect(netLog.served.osrm).toBe(1);
   });
@@ -35,7 +35,7 @@ test.describe("OSRM routing", () => {
     await planner.goto();
     await planner.selectDay("sat");
     await planner.selectDay("mon");
-    await expect(planner.routePins).toHaveCount(3);
+    await expect(planner.routePins).toHaveCount(4);
     await expect(planner.routeLines).toHaveCount(1);
   });
 });
