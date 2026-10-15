@@ -14,7 +14,7 @@ This file is the trip's working reference. Confirmed bookings are distinguished 
 - Fuel policy: Full/Full. Reported price: €41.97.
 - Have the physical driving licence, passport/accepted ID and payment card available.
 - Airport shuttle instructions from Wiber email: after baggage claim turn left and exit through Exit 6; follow the black “Transport meeting point” signs, cross two pedestrian crossings and walk to the red door marked with the same sign. Between 08:00 and 20:00, scan the QR code on a Wiber vehicle to get a queue number. The office is about a five-minute shuttle ride away.
-- Online check-in: https://app.wiberrentacar.com/en/checkin?voucher=179148803
+- Online check-in: use the personal Wiber link from the booking email; the voucher-specific URL is intentionally not stored in this public repository.
 - Shuttle directions: https://www.wiberrentacar.com/en/shuttle/PALMA
 - **Timing risk:** if the flight lands at 10:15, the 11:00 car pickup may be tight because of baggage, shuttle and rental processing.
 
