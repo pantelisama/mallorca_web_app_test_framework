@@ -121,7 +121,12 @@ const spots=[
   {by:"Pantelis",n:"Banana Club Mallorca - Alcudia",photo:"https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnscoIjE7bg4PHjwpwtdWeFsYSCj9cswor5sUKt9P6GOYUKcPDauwNlVVDJ26PJAATMcekgVaYS0LUeq8T8y--jaqkP8_dkAz4MjZmp1NWqc63XF3LfdPw1QIfGfp74lHEuhxAYMYqJkT4=w640-h480-k-no",c:[39.83955,3.12045],cat:"nightlife",day:"all",type:"Alcúdia · Nightlife",rating:4.6,d:"Reggaeton / commercial · 16/10, 23:00–05:00."},
   {by:"Pantelis",n:"La Nit",photo:"https://lh3.googleusercontent.com/gps-cs-s/AHRPTWl1i6ODHiR9zB04EAPsUBg3U0X9pGxM36zL8ysRgZL66vhyWP836kRZKoovG5xNr_5MtGiIsLcc0pS7AZ_9x4_USYQUt7ygdiv-Y1LmMdLhYoA4ps1b9khZta4Kc7XGL7o6KMNQ-n4NP3Yd=w640-h480-k-no",c:[39.83965,3.1205],cat:"nightlife",day:"all",type:"Port d'Alcúdia · Nightlife",rating:4.7,d:"Late-night club · daily, 21:30–05:30."},
   {by:"Pantelis",n:"Enjoy Cafe Lounge",photo:"https://lh3.googleusercontent.com/gps-cs-s/ANWiy9RmYG7UmJ-9jdnJyZIA9wKTKXWrt4TkyeqVSMkEcKI8Cibt8UOq9lOgiy4BrWukTglFGZAud3w8v36VsKFZahxp48KeV8_6443Cf66auRWfHcHPzP1xJBcSeBJRRons7gbhNKRBLQ=w640-h480-k-no",c:[39.83959,3.1203],cat:"nightlife",day:"all",type:"Port d'Alcúdia · Nightlife",rating:4.6,d:"Cocktails / lounge / nightlife · daily, 18:00–05:30."},
-  {by:"Pantelis",n:"COCOA Restaurante / cócteles",photo:"https://lh3.googleusercontent.com/gps-cs-s/AHRPTWly_RZpW1L9xL6nbyLna5s5yglpztCNfUgBVOEG3eY7rLE7N_mhlZYLjY6O5MF1hzM7QCH3RVYPV14cNc_vKBS7ETLi8lYSnnbws28n4upZ01wJgs1uVDUqBq-40uvgHoTFFzD8OStl-6zy=w640-h480-k-no",c:[39.84165,3.12931],cat:"nightlife",day:"all",type:"Alcúdia · Nightlife",rating:4.6,d:"Dinner + cocktails · daily, 10:00–02:00."}
+  {by:"Pantelis",n:"COCOA Restaurante / cócteles",photo:"https://lh3.googleusercontent.com/gps-cs-s/AHRPTWly_RZpW1L9xL6nbyLna5s5yglpztCNfUgBVOEG3eY7rLE7N_mhlZYLjY6O5MF1hzM7QCH3RVYPV14cNc_vKBS7ETLi8lYSnnbws28n4upZ01wJgs1uVDUqBq-40uvgHoTFFzD8OStl-6zy=w640-h480-k-no",c:[39.84165,3.12931],cat:"nightlife",day:"all",type:"Alcúdia · Nightlife",rating:4.6,d:"Dinner + cocktails · daily, 10:00–02:00."},
+  {by:"Pantelis",n:"Port de Sóller",q:"Port de Sóller, Mallorca, Spain",c:[39.7968,2.6960],cat:"beaches",day:"fri",type:"Sóller · harbour & tram",d:"Παραλιακό λιμάνι με καφέ και εστιατόρια. Το ιστορικό τραμ συνδέει το λιμάνι με την πόλη της Sóller."},
+  {by:"Pantelis",n:"Rancho Can Picafort",q:"Rancho Can Picafort, Mallorca, Spain",c:[39.7650,3.1700],cat:"experiences",day:"sat",type:"Can Picafort · horse riding",tag:"Ώρα κράτησης προς επιβεβαίωση",d:"Προγραμματισμένη περίπου 1 ώρα ιππασίας μέσα στο πευκοδάσος, με διαδρομή προς Son Bauló και επιστροφή."},
+  {by:"Pantelis",n:"Cuevas del Drach",q:"Cuevas del Drach, Porto Cristo, Mallorca, Spain",c:[39.5396,3.3331],cat:"sights",day:"sun",type:"Porto Cristo · caves & Lake Martel",tag:"Εισιτήρια κλεισμένα · ώρα από το εισιτήριο",d:"Υπόγειες αίθουσες, σταλακτίτες/σταλαγμίτες, λίμνη Martel και σύντομη συναυλία κλασικής μουσικής."},
+  {by:"Pantelis",n:"Inmood Aucanada",q:"Inmood Aucanada, Alcúdia, Mallorca, Spain",c:[39.8415,3.1630],cat:"hotels",day:["fri","sat","sun"],type:"Alcúdia · 16–18 Oct · 2 nights",d:"Βάση διαμονής για τις δύο πρώτες νύχτες. Checkout την Κυριακή το πρωί."},
+  {by:"Pantelis",n:"Hotel Las Arenas",q:"Hotel Las Arenas, Can Pastilla, Mallorca, Spain",c:[39.5352,2.7177],cat:"hotels",day:["sun","mon"],type:"Can Pastilla · 18–19 Oct · 1 night",hours:"Check-in from 14:00 · checkout by 12:00",d:"Τελευταία διανυκτέρευση κοντά στην Palma και στο αεροδρόμιο."}
 ];
 
 // Villages on the day trips. gid = Google place id (used to open the right place in Google Maps).
@@ -129,11 +134,11 @@ function village(id,name,gid,c,day,description,rating=null,reviews=null,photo=""
 // village("id","Όνομα","Google place id",[lat,lng],"sat|all","Περιγραφή")
 // day:"all" = φαίνεται σε όλες τις μέρες, χωρίς να είναι στάση.
 const villages=[
-  village("fornalutx","Fornalutx","",[39.7822,2.7410],"sat","Ίσως το πιο παραμυθένιο μικρό χωριό του νησιού. Σκαλιστά πέτρινα σοκάκια, 10 λεπτά από το Sóller.",null,null,"https://lh3.googleusercontent.com/gps-cs-s/ANWiy9Tcja3FSktJW1g1ap-b97AiCgQyZa131JaCkqUnuIIcAxP51slmuFFF5TNUHpvqOOnP3iCPWDpj7XXmVP9LZKxH7_kmdfvCho2TuTLqAVni5aIkSIAoIDXUaNm_DVAPVEAsF1oRLA=w640-h480-k-no"),
-  village("valldemossa","Valldemossa","",[39.7115,2.6226],"sat","Πέτρινα σοκάκια, λουλούδια και βουνό γύρω γύρω.",null,null,"https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmgcTKF197y54_nCr_UPgkXFWaaisUoC0-MPMSwVbjBoluI8OOm2rzvpcGAOWG6FB3lbPxionPgSus6iTMehqRxK_23zQvzlVA-E8DPnPexcOPnwzLQtutjJ-JHwvC6qsz2BhzDNQ=w640-h480-k-no"),
+  village("fornalutx","Fornalutx","",[39.7822,2.7410],"all","Ίσως το πιο παραμυθένιο μικρό χωριό του νησιού. Σκαλιστά πέτρινα σοκάκια, 10 λεπτά από το Sóller.",null,null,"https://lh3.googleusercontent.com/gps-cs-s/ANWiy9Tcja3FSktJW1g1ap-b97AiCgQyZa131JaCkqUnuIIcAxP51slmuFFF5TNUHpvqOOnP3iCPWDpj7XXmVP9LZKxH7_kmdfvCho2TuTLqAVni5aIkSIAoIDXUaNm_DVAPVEAsF1oRLA=w640-h480-k-no"),
+  village("valldemossa","Valldemossa","",[39.7115,2.6226],"all","Πέτρινα σοκάκια, λουλούδια και βουνό γύρω γύρω.",null,null,"https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmgcTKF197y54_nCr_UPgkXFWaaisUoC0-MPMSwVbjBoluI8OOm2rzvpcGAOWG6FB3lbPxionPgSus6iTMehqRxK_23zQvzlVA-E8DPnPexcOPnwzLQtutjJ-JHwvC6qsz2BhzDNQ=w640-h480-k-no"),
   village("deia","Deià","",[39.7486,2.6486],"all","Πέτρινο χωριό σκαρφαλωμένο στην πλαγιά, με θέα στη θάλασσα.",4.6,1052,"https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkQz0ZUGoQXlMK7E8teDtzQ-mfqQ7VyD-RdXhnqezU3_IdfITZeb3V9TVz0_aKufQbRCYmX4LJMStrRIVNs4flZkhkKXp0CSKclu0KzLHx29qaln2AZ2KgdbPOj4RagV1I7l8r8=w640-h480-k-no"),
-  village("soller","Sóller","",[39.7671,2.7158],"sat","Μεγαλύτερο και με περισσότερη ζωή. Συνδυάζει βουνό, χωριό και το Port de Sóller.",null,null,"https://lh3.googleusercontent.com/gps-cs-s/ANWiy9QX5QgTm3sHOVj9Puc5oe7u9R-DsW51sO4EI_z0MlyXclDEnMiUzLAr_nwxe-jQuQhtriQ46ipOo_RHxfP3xXHxgJ6JtIWna4w_yBnwv40PFCdzsV3cpOO3Hj8594QP1Sfaar_1XQ=w640-h480-k-no"),
-  village("pollenca","Pollença","",[39.8760,3.0176],"sat","Ιστορική πλατεία, Calvari steps και καφές πριν την ανηφόρα προς Formentor.",null,null,"https://lh3.googleusercontent.com/gps-cs-s/AHRPTWl2BlHmF2PHSdR5QuqpkRDh1DgLxFTjK62uAnnm-Vb676oRVn3dnt7HbPBo7uWDS70b-CrNH10gwMwn7NVXudCSTOKustt4g-lcef3K040b0Iq69RvdxEdDWH9hCRf5sv1FFw7Cpg=w640-h480-k-no"),
+  village("soller","Sóller","",[39.7671,2.7158],"fri","Μεγαλύτερο και με περισσότερη ζωή. Συνδυάζει βουνό, χωριό και το Port de Sóller.",null,null,"https://lh3.googleusercontent.com/gps-cs-s/ANWiy9QX5QgTm3sHOVj9Puc5oe7u9R-DsW51sO4EI_z0MlyXclDEnMiUzLAr_nwxe-jQuQhtriQ46ipOo_RHxfP3xXHxgJ6JtIWna4w_yBnwv40PFCdzsV3cpOO3Hj8594QP1Sfaar_1XQ=w640-h480-k-no"),
+  village("pollenca","Pollença","",[39.8760,3.0176],"all","Ιστορική πλατεία, Calvari steps και καφές πριν την ανηφόρα προς Formentor.",null,null,"https://lh3.googleusercontent.com/gps-cs-s/AHRPTWl2BlHmF2PHSdR5QuqpkRDh1DgLxFTjK62uAnnm-Vb676oRVn3dnt7HbPBo7uWDS70b-CrNH10gwMwn7NVXudCSTOKustt4g-lcef3K040b0Iq69RvdxEdDWH9hCRf5sv1FFw7Cpg=w640-h480-k-no"),
   village("alcudia","Alcúdia Old Town","",[39.8525,3.1192],"fri","Πολύ όμορφο αλλά σε άλλο στιλ: μεσαιωνικό, μέσα στα παλιά τείχη.",null,null,"https://lh3.googleusercontent.com/grass-cs/ACvplmMJmWZrtpAp-4HvEivB16-N3Fr6eocir85cRM066lWr_D7OPICn9L0TuZCs6TR3-CyfAEPv28j8g08flgTCUOQuTQbwcawWvG_NHZ5qd4WCFsQzCWtUHa7xKQjZW0KkGqObE7jF=w640-h480-k-no"),
   village("santanyi","Santanyí","",[39.3545,3.1290],"sun","Χωριό από χρυσαφί πέτρα στα νοτιοανατολικά, κοντά στις calas. Έχει αγορά Τετάρτη και Σάββατο, μέχρι τις 14:00.",null,null,"https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlySEALRv033A48XRXN_QCIVW9-lIfEHYAEJ1uOyL7oyML3NZ9BtUdMtPA3zgxEPhjs6nfAyTyj3gs3Hw99SqGsC67ycTCF_7W2p8LD5LDuunZhNSYNH-q1OUcqRQzDqCUWl1d8=w640-h480-k-no")
 ];
@@ -142,37 +147,33 @@ const areas=[
 ];
 
 const days=[
-  {id:"fri",label:"Παρ 16",title:"Παρασκευή 16 · Airport → Alcúdia",sub:"Νερά → φύση → φαγητό με θέα → Alcúdia",plan:[
-    ["Άφιξη","✈️ Airport → rental","Παίρνετε το αυτοκίνητο και ξεκινάτε βόρεια.","experiences","Airport → Playa de Muro"],
-    ["Πρώτη στάση","Playa de Muro","Τιρκουάζ νερά, μεγάλη αμμουδιά και πρώτη βουτιά/βόλτα στη θάλασσα.","beaches","Playa de Muro → s'Albufera"],
-    ["Φύση","s'Albufera","Μικρή βόλτα στο φυσικό πάρκο και birdwatching.","experiences","s'Albufera → Alcúdia"],
-    ["Φαγητό","Port d’Alcúdia","Lunch/seafood δίπλα στη θάλασσα και χαλαρή βόλτα στη μαρίνα.","food","Port d’Alcúdia → Alcúdia Old Town"],
-    ["Απόγευμα","Alcúdia Old Town","Μεσαιωνικά τείχη, παλιά σοκάκια και μικρά shops.","villages","Alcúdia"],
-    ["Βράδυ","Alcúdia","Sunset και dinner στην παλιά πόλη ή στο port.","food","Μένουμε Alcúdia"]
+  {id:"fri",label:"Παρ 16",title:"Παρασκευή 16 · Airport → Cala Deià → Sóller → Alcúdia",sub:"Κολπάκι και ταβέρνα πάνω στη θάλασσα → Deià → Sóller/τραμ → ξενοδοχείο",note:"Η πτήση φτάνει περίπου 10:15 και η παραλαβή Wiber είναι στις 11:00, οπότε η μέρα είναι πιεστική. Αν καθυστερήσει το αυτοκίνητο, συντομεύστε τη Sóller. Επιβεβαιώστε κράτηση/ωράριο στο Ca’s Patró March και τα δρομολόγια του τραμ.",plan:[
+    ["10:15","Άφιξη στο PMI + Wiber","Πτήση LS1529 και παραλαβή αυτοκινήτου με shuttle. Υπολογίστε χρόνο για αποσκευές και check-in ενοικίασης.","experiences","Airport → Cala Deià"],
+    ["Μεσημέρι","Cala Deià","Μικρός βραχώδης όρμος με καθαρά νερά. Μπάνιο μόνο αν το επιτρέπουν ο καιρός και η θάλασσα.","beaches","Cala Deià"],
+    ["Lunch","Ca’s Patró March","Θαλασσινά με τραπέζια πάνω από το νερό. Χρειάζεται επιβεβαίωση κράτησης και ωραρίου.","food","Cala Deià → Deià"],
+    ["Απόγευμα","Deià village","Σύντομη βόλτα στα πέτρινα σοκάκια και φωτογραφίες.","villages","Deià → Sóller"],
+    ["Απόγευμα","Sóller + Port de Sóller","Βόλτα στην παλιά πόλη και, αν προλαβαίνουμε, το ιστορικό τραμ μέχρι το λιμάνι. Ελέγξτε το ωράριο.","villages","Sóller → Port de Sóller"],
+    ["Βράδυ","Inmood Aucanada","Επιστροφή με αυτοκίνητο στην Alcúdia και διανυκτέρευση.","hotels","Port de Sóller → Inmood Aucanada"]
   ]},
-  {id:"sat",label:"Σαβ 17",title:"Σάββατο 17 · Tramuntana Road Trip",sub:"Pollença → Formentor → Sóller → Deià → Valldemossa → Alcúdia",plan:[
-    ["Πρωί","Pollença","Calvari steps + Plaça Major + καφές.","villages","Alcúdia → Pollença"],
-    ["Πρωί","Formentor","Mirador Es Colomer + Talaia d’Albercutx + scenic drive προς το cap.","sights","Pollença → Formentor"],
-    ["Μεσημέρι","Formentor Beach","Παραλία και lunch δίπλα στο νερό.","beaches","Formentor → Sóller"],
-    ["Απόγευμα","Sóller","Πλατεία, παλιά πόλη και κάτι γλυκό/παγωτό.","villages","Sóller → Port de Sóller"],
-    ["Απόγευμα","Port de Sóller","Λιμάνι, θάλασσα και drink/φαγητό με θέα.","beaches","Port de Sóller → Deià"],
-    ["Αργά","Deià","Πέτρινο χωριό + Cala Deià / seafood αν υπάρχει χρόνος.","villages","Deià → Valldemossa"],
-    ["Βράδυ","Valldemossa","Βόλτα στα σοκάκια + coca de patata.","villages","Valldemossa → Alcúdia"]
+  {id:"sat",label:"Σαβ 17",title:"Σάββατο 17 · Κρασί → μικρή στάση → άλογα",sub:"Alcúdia → Bodegas José L. Ferrer (12:00) → Biniagual/Binissalem → Rancho Can Picafort → Alcúdia",note:"Το οινοποιείο είναι κλεισμένο για τις 12:00. Η ακριβής ώρα της ιππασίας δεν έχει επιβεβαιωθεί ακόμη· προσαρμόστε τη μικρή στάση και τη σειρά με βάση την κράτηση.",plan:[
+    ["Πρωί","Αναχώρηση από Alcúdia","Οδήγηση προς Binissalem. Φύγετε με αρκετό περιθώριο για να είστε στο οινοποιείο πριν από τις 12:00.","experiences","Alcúdia → Bodegas José L. Ferrer"],
+    ["12:00","Bodegas José L. Ferrer","Προκρατημένη επίσκεψη στο οινοποιείο στο Binissalem.","wineries","Bodegas José L. Ferrer"],
+    ["Μετά το οινοποιείο","Biniagual ή Binissalem","Μικρή στάση 20–30 λεπτών για πέτρινα σπίτια, αμπελώνες και φωτογραφίες, αν το επιτρέπει ο χρόνος.","villages","Biniagual/Binissalem → Can Picafort"],
+    ["Απόγευμα · ώρα προς επιβεβαίωση","Rancho Can Picafort","Προγραμματισμένη ιππασία περίπου μίας ώρας στο πευκοδάσος, προς Son Bauló και πίσω. Η ώρα δεν έχει καταγραφεί.","experiences","Rancho Can Picafort"],
+    ["Βράδυ","Alcúdia","Επιστροφή στο Inmood Aucanada και φαγητό/βόλτα στην Alcúdia.","hotels","Can Picafort → Alcúdia"]
   ]},
-  {id:"sun",label:"Κυρ 18",title:"Κυριακή 18 · Alcúdia → Southeast → Palma",sub:"Sunday Market → Coll Baix → Santanyí → Cala Figuera → Mondragó → Cala d’Or → Palma",plan:[
-    ["Πρωί","Alcúdia Sunday Market","Αγορά Κυριακής στην παλιά πόλη + medieval walls.","experiences","Alcúdia → Coll Baix"],
-    ["Πρωί","Coll Baix","Wild north-coast beach και σύντομη coastal walk.","beaches","Coll Baix → Santanyí"],
-    ["Μεσημέρι","Santanyí","Old town, Plaça Major και lunch / shops.","villages","Santanyí → Cala Figuera"],
-    ["Μεσημέρι","Cala Figuera","Χαρακτηριστικό fishing harbour για βόλτα και φωτογραφίες.","beaches","Cala Figuera → Cala Mondragó"],
-    ["Απόγευμα","Cala Mondragó / S’Amarador","Turquoise beach + σύντομη φύση στο Mondragó.","beaches","Mondragó → Portopetro"],
-    ["Αργά απόγευμα","Portopetro","Μικρό φυσικό λιμάνι για drink / ice cream.","villages","Portopetro → Cala d’Or"],
-    ["Αργά απόγευμα","Cala d’Or","Marina + μικρές calas πριν την τελευταία διαδρομή.","beaches","Cala d’Or → Palma"],
-    ["Βράδυ","Palma","Check-in, dinner και drinks.","food","Μένουμε Palma"]
+  {id:"sun",label:"Κυρ 18",title:"Κυριακή 18 · Alcúdia → Cuevas del Drach → Santanyí → Palma",sub:"Παζαράκι → σπηλιές → Santanyí αν υπάρχει χρόνος/καλός καιρός → Hotel Las Arenas → Palma",note:"Checkout από Inmood Aucanada το πρωί. Ακολουθήστε την ώρα εισόδου που γράφουν τα εισιτήρια των Cuevas del Drach. Αν ο καιρός είναι πολύ κακός ή πιεστεί ο χρόνος, παραλείψτε το Santanyí και πηγαίνετε κατευθείαν στο Hotel Las Arenas. Check-in από τις 14:00.",plan:[
+    ["Πρωί","Alcúdia Sunday Market","Checkout και σύντομη βόλτα στο κυριακάτικο παζάρι της παλιάς πόλης.","experiences","Alcúdia → Cuevas del Drach"],
+    ["Ώρα εισιτηρίου","Cuevas del Drach","Προκρατημένα εισιτήρια για τις σπηλιές, την υπόγεια λίμνη Martel και τη μουσική παράσταση.","sights","Cuevas del Drach"],
+    ["Μετά τις σπηλιές · προαιρετικά","Santanyí","Βόλτα στο πέτρινο χωριό και φαγητό μόνο αν βγαίνει άνετα ο χρόνος και ο καιρός.","villages","Santanyí → Can Pastilla"],
+    ["Από 14:00","Hotel Las Arenas","Check-in στο ξενοδοχείο στο Can Pastilla. Η ώρα είναι η έναρξη του check-in, όχι υποχρεωτική ώρα άφιξης.","hotels","Hotel Las Arenas"],
+    ["Απόγευμα/βράδυ","Palma","Βόλτα στην παλιά πόλη, καθεδρικός/παραλιακή και δείπνο.","food","Can Pastilla → Palma"]
   ]},
-  {id:"mon",label:"Δευ 19",title:"Δευτέρα 19 · Palma → Airport",sub:"Τελευταία Palma → αεροδρόμιο",plan:[
-    ["Πρωί","Palma Old Town","Τελευταία βόλτα, Cathedral/Arab Baths και καφές.","villages","Palma"],
-    ["Late morning","Mercat de l’Olivar","Breakfast/brunch και τελευταία local γεύση.","food","Palma → Airport"],
-    ["Αναχώρηση","✈️ Airport","Rental return και πτήση.","experiences","Palma → Airport"]
+  {id:"mon",label:"Δευ 19",title:"Δευτέρα 19 · Palma → επιστροφή αυτοκινήτου → πτήση",sub:"Πρωινή βόλτα → checkout έως 12:00 → Wiber 13:00 → Wizz Air 15:55",note:"Το checkout στο Hotel Las Arenas είναι έως τις 12:00. Η επιστροφή Wiber είναι στις 13:00 και η πτήση Wizz Air αναχωρεί από PMI στις 15:55. Αφήστε περιθώριο για shuttle και έλεγχο στο αεροδρόμιο.",plan:[
+    ["Πρωί","Palma Old Town","Σύντομη βόλτα στο ιστορικό κέντρο και καφές. Κρατήστε το πρόγραμμα κοντά στο ξενοδοχείο.","villages","Palma Old Town"],
+    ["Έως 12:00","Hotel Las Arenas checkout","Checkout και αναχώρηση με αποσκευές.","hotels","Can Pastilla → Wiber"],
+    ["13:00","Επιστροφή Wiber","Επιστροφή αυτοκινήτου και shuttle προς το αεροδρόμιο.","experiences","Wiber → PMI Airport"],
+    ["15:55","Πτήση επιστροφής","Wizz Air PMI → London Luton.","experiences","PMI Airport"]
   ]}
 ];
 let currentDay="fri";
@@ -188,37 +189,33 @@ if(leafletReady)areas.forEach(a=>{const poly=L.polygon(a.p,{color:"#18211d",weig
 // Το "long" = μεγάλη στάση (μεγαλύτερη πινέζα). Το όνομα ταιριάζει με μέρος από τη λίστα spots.
 const routes={
   fri:{stops:[
-    {n:"Airport",c:[39.5517,2.7388],type:"sight",size:"long"},
-    {n:"Playa de Muro",c:[39.7942,3.1174],type:"beach",size:"long"},
-    {n:"s'Albufera",c:[39.7881,3.1068],type:"sight",size:"long"},
-    {n:"Port d’Alcúdia",c:[39.8412,3.1315],type:"beach",size:"long"},
-    {n:"Alcúdia Old Town",c:[39.8525,3.1192],type:"village",size:"long"}
-  ]},
-  sat:{stops:[
-    {n:"Alcúdia Old Town",c:[39.8525,3.1192],type:"village",size:"long"},
-    {n:"Pollença",c:[39.8760,3.0176],type:"village",size:"long"},
-    {n:"Formentor",c:[39.9596,3.2099],type:"sight",size:"long"},
-    {n:"Formentor Beach",c:[39.9290,3.1965],type:"beach",size:"long"},
+    {n:"PMI Airport",c:[39.5517,2.7388],type:"sight",size:"long"},
+    {n:"Cala Deià",c:[39.7589,2.6412],type:"beach",size:"long"},
+    {n:"Ca’s Patró March",c:[39.7588,2.6411],type:"food",size:"long"},
+    {n:"Deià",c:[39.7486,2.6486],type:"village",size:"small"},
     {n:"Sóller",c:[39.7671,2.7158],type:"village",size:"long"},
     {n:"Port de Sóller",c:[39.7968,2.6960],type:"beach",size:"long"},
-    {n:"Deià",c:[39.7486,2.6486],type:"village",size:"long"},
-    {n:"Valldemossa",c:[39.7115,2.6226],type:"village",size:"long"},
+    {n:"Inmood Aucanada",c:[39.8415,3.1630],type:"hotel",size:"long"}
+  ]},
+  sat:{stops:[
+    {n:"Inmood Aucanada",c:[39.8415,3.1630],type:"hotel",size:"long"},
+    {n:"Bodegues José L. Ferrer",c:[39.6864,2.8347],type:"sight",size:"long"},
+    {n:"Biniagual",c:[39.6818,2.8580],type:"village",size:"small"},
+    {n:"Rancho Can Picafort",c:[39.7650,3.1700],type:"sight",size:"long"},
     {n:"Alcúdia Old Town",c:[39.8525,3.1192],type:"village",size:"long"}
   ]},
   sun:{stops:[
-    {n:"Alcúdia Old Town",c:[39.8525,3.1192],type:"village",size:"long"},
-    {n:"Coll Baix",c:[39.8730,3.1410],type:"beach",size:"long"},
+    {n:"Alcúdia Sunday Market",c:[39.8525,3.1192],type:"village",size:"long"},
+    {n:"Cuevas del Drach",c:[39.5396,3.3331],type:"sight",size:"long"},
     {n:"Santanyí",c:[39.3545,3.1290],type:"village",size:"long"},
-    {n:"Cala Figuera",c:[39.3300,3.1710],type:"beach",size:"long"},
-    {n:"Cala Mondragó",c:[39.3655,3.1860],type:"beach",size:"long"},
-    {n:"Portopetro",c:[39.3630,3.2090],type:"village",size:"long"},
-    {n:"Cala d’Or",c:[39.3780,3.2340],type:"beach",size:"long"},
-    {n:"Palma",c:[39.5696,2.6502],type:"village",size:"long"}
+    {n:"Hotel Las Arenas",c:[39.5352,2.7177],type:"hotel",size:"long"},
+    {n:"Palma Old Town",c:[39.5700,2.6500],type:"village",size:"long"}
   ]},
   mon:{stops:[
-    {n:"Palma Old Town",c:[39.5700,2.6500],type:"village",size:"long"},
-    {n:"Mercat de l’Olivar",c:[39.5750,2.6515],type:"sight",size:"long"},
-    {n:"Airport",c:[39.5517,2.7388],type:"sight",size:"long"}
+    {n:"Hotel Las Arenas",c:[39.5352,2.7177],type:"hotel",size:"long"},
+    {n:"Palma Old Town",c:[39.5700,2.6500],type:"village",size:"small"},
+    {n:"Wiber Rent a Car",c:[39.5517,2.7388],type:"sight",size:"long"},
+    {n:"PMI Airport",c:[39.5517,2.7388],type:"sight",size:"long"}
   ]}
 };
 let routeLayer=leafletReady?L.layerGroup():null,routeVisible=false,routeToken=0;
