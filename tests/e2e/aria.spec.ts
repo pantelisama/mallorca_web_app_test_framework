@@ -41,11 +41,13 @@ test("map layer controls expose names and pressed state", { tag: "@smoke" }, asy
 test("stops drawer lists Friday's stops in order", async ({ planner }) => {
   await expect(planner.stopDrawer).toMatchAriaSnapshot(`
     - strong: Στάσεις στον χάρτη
-    - button "01 Airport"
-    - button "02 Playa de Muro"
-    - button "03 s'Albufera"
-    - button "04 Port d’Alcúdia"
-    - button "05 Alcúdia Old Town"
+    - button "01 PMI Airport"
+    - button "02 Cala Deià"
+    - button "03 Ca’s Patró March"
+    - button "04 Deià"
+    - button "05 Sóller"
+    - button "06 Port de Sóller"
+    - button "07 Inmood Aucanada"
     - button "Άνοιξε στάσεις"
   `);
 });
