@@ -25,7 +25,7 @@ test.describe("OSRM routing", () => {
     test.use({ network: { ...DEFAULT_NETWORK, osrm: "fail" }, allowConsole: RESOURCE_FAILED });
     test("pins are still drawn, without a road line, after trying both endpoints", async ({ planner, netLog }) => {
       await planner.goto();
-      await expect(planner.routePins).toHaveCount(5);
+      await expect(planner.routePins).toHaveCount(7);
       await expect.poll(() => netLog.served.osrm).toBe(2);
       await expect(planner.routeLines).toHaveCount(0);
     });
