@@ -9,7 +9,7 @@ test.beforeEach(async ({ planner }) => {
 test.describe("days", () => {
   test("Friday is selected on load", { tag: "@smoke" }, async ({ planner }) => {
     await expect(await planner.dayButton("fri")).toHaveClass(/active/);
-    await expect(planner.heading).toHaveText("Παρασκευή 16 · Airport → Alcúdia");
+    await expect(planner.heading).toHaveText("Παρασκευή 16 · Airport → Cala Deià → Sóller → Alcúdia");
   });
 
   for (const day of Object.keys(DAY_LABELS) as Day[]) {
@@ -129,13 +129,13 @@ test.describe("stops drawer", () => {
     await (await planner.stopItem(1)).focus();
     await page.keyboard.press("Enter");
     await expect(planner.stopDrawer).not.toHaveClass(/open/);
-    await expect.poll(() => planner.mapCenter()).toEqual([39.7942, 3.1174]); // Playa de Muro
+    await expect.poll(() => planner.mapCenter()).toEqual([39.7589, 2.6412]); // Cala Deià
   });
 });
 
 test.describe("map controls", () => {
   test("route button hides and re-shows the day's route", async ({ planner }) => {
-    await expect(planner.routePins).toHaveCount(5);
+    await expect(planner.routePins).toHaveCount(7);
     await (await planner.routeAction()).click();
     await expect(planner.routePins).toHaveCount(0);
     await (await planner.routeAction()).click();
